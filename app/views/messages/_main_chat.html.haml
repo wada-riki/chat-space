@@ -1,0 +1,36 @@
+.main
+  .main__header
+    .group-name
+      魔王軍
+      .group-member
+        魔王
+
+    .main__header__edit-btn
+      
+      = link_to "EDIT","#"
+        
+
+  .main__chats
+    .up-member
+      .member
+        魔王
+        .date
+          20XX/xx/xx
+      .chat
+        "HELL WORLD"
+
+      .member
+        人間A
+        .date
+          2020/01/22
+      .chat
+        "HELLO WORLD"
+  
+  .form
+    %form
+      %input.form__message
+      .form__mask
+        %label.form__mask__image
+          = icon('fa','image',class: 'icon')
+          %input.hidden{type: 'file'}
+      %input.form__submit{type: 'submit', value: 'Send'}
