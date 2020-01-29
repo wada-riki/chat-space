@@ -1,36 +1,37 @@
+
+
 .main
   .main__header
     .group-name
-      魔王軍
-      .group-member
-        魔王
+      = @group.name
+      .group-member 
+        Member :
+        - @group.users.each do |user|
+          = user.username
 
     .main__header__edit-btn
-      
-      = link_to "EDIT","#"
+      = link_to "Edit", edit_group_path(@group.id) 
+
+
+  .messages
+    = render @messages
+    .message
+      .upper-message
+        .upper-message__user-name
+          メンバー
+        .upper-message__date
+          2017/04/04
+    .lower-meesage
+      .lower-message__content
+        メッセージ
         
-
-  .main__chats
-    .up-member
-      .member
-        魔王
-        .date
-          20XX/xx/xx
-      .chat
-        "HELL WORLD"
-
-      .member
-        人間A
-        .date
-          2020/01/22
-      .chat
-        "HELLO WORLD"
+        
   
   .form
-    %form
-      %input.form__message
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
       .form__mask
-        %label.form__mask__image
-          = icon('fa','image',class: 'icon')
-          %input.hidden{type: 'file'}
-      %input.form__submit{type: 'submit', value: 'Send'}
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
