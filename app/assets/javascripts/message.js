@@ -22,8 +22,7 @@ $(function(){
       //同様に、data-idが反映されるようにしている
       var html = `<div class="message" data-message-id=` + message.id + `>` +
         `<div class="upper-message">` +
-          `<di
-          v class="upper-message__user-name">` +
+          `<div class="upper-message__user-name">` +
             message.user_name +
           `</div>` +
           `<div class="upper-message__date">` +
